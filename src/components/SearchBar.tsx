@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { StyleSheet, View, TextInput } from 'react-native';
+import { SPACING, WIDTH } from '../utils/layout';
 
-export const SearchBar = () => {
+export const SearchBar = (): JSX.Element => {
   const [searchText, setSearchText] = useState<string>('');
 
   return (
@@ -17,13 +18,15 @@ export const SearchBar = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    width: WIDTH,
+  },
   input: {
     height: 40,
-    minWidth: 250,
-    margin: 12,
+    marginVertical: SPACING.medium,
+    marginHorizontal: SPACING.xlarge,
+    padding: SPACING.medium,
+    borderRadius: SPACING.small,
     borderWidth: 1,
-    borderRadius: 5,
-    padding: 10,
   },
 });

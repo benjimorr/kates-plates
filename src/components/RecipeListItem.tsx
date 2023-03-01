@@ -1,4 +1,11 @@
-import { StyleSheet, View, Text } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Linking,
+  TouchableOpacity,
+} from 'react-native';
+import { SPACING } from '../utils/layout';
 
 interface RecipeListItemProps {
   name: string;
@@ -12,14 +19,18 @@ export const RecipeListItem = ({
   description,
   url,
   rating,
-}: RecipeListItemProps) => (
+}: RecipeListItemProps): JSX.Element => (
   <View style={styles.item}>
-    <View style={styles.column}>
+    <View style={[styles.column, styles.columnLeft]}>
       <Text style={styles.name}>{name}</Text>
       <Text style={styles.description}>{description}</Text>
     </View>
-    <View style={styles.column}>
-      {url && <Text style={styles.url}>{url}</Text>}
+    <View style={[styles.column, styles.columnRight]}>
+      {url && (
+        <TouchableOpacity onPress={() => Linking.openURL(url)}>
+          <Text style={styles.url}>Link</Text>
+        </TouchableOpacity>
+      )}
       {rating && <Text style={styles.rating}>{`${rating} / 10`}</Text>}
     </View>
   </View>
@@ -27,28 +38,36 @@ export const RecipeListItem = ({
 
 const styles = StyleSheet.create({
   item: {
-    padding: 20,
-    marginBottom: 12,
-    borderRadius: 10,
+    flex: 1,
     flexDirection: 'row',
-    minWidth: 400,
+    padding: SPACING.medium,
+    marginHorizontal: SPACING.xlarge,
+    marginBottom: SPACING.large,
+    borderRadius: SPACING.medium,
     borderWidth: 2,
   },
   column: {
+    margin: SPACING.small,
+  },
+  columnLeft: {
+    flex: 1,
+    flexGrow: 3,
+  },
+  columnRight: {
     flex: 1,
     flexGrow: 1,
-    padding: 5,
   },
   name: {
     fontWeight: 'bold',
   },
   description: {
-    marginTop: 5,
+    marginTop: SPACING.xsmall,
   },
   url: {
     textAlign: 'right',
   },
   rating: {
     textAlign: 'right',
+    marginTop: SPACING.xsmall,
   },
 });

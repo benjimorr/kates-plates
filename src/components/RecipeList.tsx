@@ -3,8 +3,9 @@ import { StyleSheet, View, FlatList, Text } from 'react-native';
 import { RecipeListItem } from './RecipeListItem';
 import { SearchBar } from './SearchBar';
 import { recipes as testRecipes } from '../utils/recipeData';
+import { SPACING, WIDTH } from '../utils/layout';
 
-export const RecipeList = () => {
+export const RecipeList = (): JSX.Element => {
   const [recipes, setRecipes] = useState<Recipe[]>(testRecipes);
 
   return (
@@ -23,13 +24,13 @@ export const RecipeList = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: 'center',
-    marginTop: 10,
   },
   title: {
     fontSize: 30,
   },
   list: {
-    flex: 1,
+    width: WIDTH,
   },
 });
