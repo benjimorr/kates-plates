@@ -3,10 +3,10 @@ import { StyleSheet, View, FlatList, Text } from 'react-native';
 import { RecipeListItem } from './RecipeListItem';
 import { SearchBar } from './SearchBar';
 import { recipes as testRecipes } from '../utils/recipeData';
-import { SPACING, WIDTH } from '../utils/layout';
+import { WIDTH } from '../utils/layout';
 
 export const RecipeList = (): JSX.Element => {
-  const [recipes, setRecipes] = useState<Recipe[]>(testRecipes);
+  const [recipes, _] = useState<Recipe[]>(testRecipes);
 
   return (
     <View style={styles.container}>
