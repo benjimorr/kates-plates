@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "extends": "@react-native-community",
+  "rules": {
+    "prettier/prettier": [
+      2,
+      {
+        "singleQuote": true,
+        "arrowParens": "avoid"
+      }
+    ],
+    "react/react-in-jsx-scope": "off"
+  }
+}
