@@ -1,10 +1,5 @@
-import {
-  StyleSheet,
-  View,
-  Text,
-  Linking,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, Linking } from 'react-native';
+import { Card, Text, Button, IconButton } from 'react-native-paper';
 import { SPACING } from '../../utils/layout';
 
 interface RecipeListItemProps {
@@ -20,54 +15,31 @@ export const RecipeListItem = ({
   url,
   rating,
 }: RecipeListItemProps): JSX.Element => (
-  <View style={styles.item}>
-    <View style={[styles.column, styles.columnLeft]}>
-      <Text style={styles.name}>{name}</Text>
-      <Text style={styles.description}>{description}</Text>
-    </View>
-    <View style={[styles.column, styles.columnRight]}>
+  <Card elevation={3} style={styles.item}>
+    <Card.Title title={name} titleVariant="titleLarge" />
+    <Card.Content>
+      <Text variant="bodyMedium">{description}</Text>
+      {rating && <Text variant="bodyMedium">Rating: {`${rating} / 10`}</Text>}
+    </Card.Content>
+    <Card.Actions>
+      <IconButton icon="pencil" onPress={() => {}} />
       {url && (
-        <TouchableOpacity onPress={() => Linking.openURL(url)}>
-          <Text style={styles.url}>Link</Text>
-        </TouchableOpacity>
+        <Button
+          mode="contained"
+          accessibilityLabel="View Recipe"
+          uppercase
+          onPress={() => Linking.openURL(url)}
+        >
+          View Recipe
+        </Button>
       )}
-      {rating && <Text style={styles.rating}>{`${rating} / 10`}</Text>}
-    </View>
-  </View>
+    </Card.Actions>
+  </Card>
 );
 
 const styles = StyleSheet.create({
   item: {
-    flex: 1,
-    flexDirection: 'row',
-    padding: SPACING.medium,
-    marginHorizontal: SPACING.xlarge,
-    marginBottom: SPACING.large,
-    borderRadius: SPACING.medium,
-    borderWidth: 2,
-  },
-  column: {
-    margin: SPACING.small,
-  },
-  columnLeft: {
-    flex: 1,
-    flexGrow: 3,
-  },
-  columnRight: {
-    flex: 1,
-    flexGrow: 1,
-  },
-  name: {
-    fontWeight: 'bold',
-  },
-  description: {
-    marginTop: SPACING.xsmall,
-  },
-  url: {
-    textAlign: 'right',
-  },
-  rating: {
-    textAlign: 'right',
-    marginTop: SPACING.xsmall,
+    marginHorizontal: SPACING.large,
+    marginVertical: SPACING.small,
   },
 });

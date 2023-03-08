@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { StyleSheet, View, FlatList, Text } from 'react-native';
-import { Searchbar } from 'react-native-paper';
+import { StyleSheet, View, FlatList } from 'react-native';
+import { Searchbar, Text } from 'react-native-paper';
 import { RecipeListItem } from './RecipeListItem';
 import { recipes as testRecipes } from '../../utils/recipeData';
 import { WIDTH, SPACING } from '../../utils/layout';
@@ -11,7 +11,7 @@ export const RecipeList = (): JSX.Element => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Recipes</Text>
+      <Text variant="headlineLarge">Recipes</Text>
       <View style={styles.searchContainer}>
         <Searchbar
           placeholder="Search Recipes"
@@ -33,9 +33,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-  },
-  title: {
-    fontSize: 30,
   },
   searchContainer: {
     width: WIDTH,
