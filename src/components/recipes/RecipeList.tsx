@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { StyleSheet, View, FlatList, Text } from 'react-native';
 import { RecipeListItem } from './RecipeListItem';
-import { SearchBar } from './SearchBar';
-import { recipes as testRecipes } from '../utils/recipeData';
-import { WIDTH } from '../utils/layout';
+import { SearchBar } from '../SearchBar';
+import { recipes as testRecipes } from '../../utils/recipeData';
+import { WIDTH } from '../../utils/layout';
 
 export const RecipeList = (): JSX.Element => {
   const [recipes, _] = useState<Recipe[]>(testRecipes);

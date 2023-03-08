@@ -5,7 +5,7 @@ import {
   Linking,
   TouchableOpacity,
 } from 'react-native';
-import { SPACING } from '../utils/layout';
+import { SPACING } from '../../utils/layout';
 
 interface RecipeListItemProps {
   name: string;
