@@ -7,7 +7,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "eslint . --ext .tsx,.ts src/ --ignore-pattern 'src/**/*.d.ts'"
+    "lint": "eslint --ext .tsx,.ts App.tsx src/ --ignore-pattern 'src/**/*.d.ts'"
   },
   "dependencies": {
     "expo": "~47.0.12",
